@@ -59,11 +59,16 @@ namespace MySnake
 
         public void Draw()
         {
-            if (x >= 0 && x < 80 && y >= 0 && y < 25)
+            //if (x >= 0 && x < 80 && y >= 0 && y < 25)
             { 
                 Console.SetCursorPosition(x, y);
                 Console.Write(sym);
             }
+        }
+
+        public bool IsHit (Point p)
+        {
+            return p.x == this.x && p.y == this.y;
         }
 
         public override string ToString()
