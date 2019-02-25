@@ -43,13 +43,11 @@ namespace MySnake
             }
             else if (direction == Direction.UP)
             {
-                // TODO // у перподавателя знаки вверх и вниз наоборот
                 y = y - offset;
             }
             else
             {
-
-                y = y + offset;  // TODO // у перподавателя знаки вверх и вниз наоборот
+                y = y + offset;
             }
         }
 
@@ -61,8 +59,11 @@ namespace MySnake
 
         public void Draw()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
+            if (x >= 0 && x < 80 && y >= 0 && y < 25)
+            { 
+                Console.SetCursorPosition(x, y);
+                Console.Write(sym);
+            }
         }
 
         public override string ToString()
