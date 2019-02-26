@@ -12,7 +12,7 @@ namespace MySnake
         static void Main(string[] args)
         {
             Console.SetBufferSize(80,25);
-            //Console.CursorVisible = false;
+            Console.CursorVisible = false;
 
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
             HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
@@ -35,23 +35,23 @@ namespace MySnake
             {
                 if (snake.Eat(food))
                 {
+                    
                     food = foodCreator.CreateFood();
                     food.Draw();
+                    snake.Draw();
                 }
                 else
                 {
                     snake.Move();
                 }
 
-
+                Thread.Sleep(100);
 
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key);
                 }
-                Thread.Sleep(200);
-                snake.Move();
             }
         } 
     }
