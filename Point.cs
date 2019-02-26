@@ -14,7 +14,6 @@ namespace MySnake
 
         public Point()
         {
-
         }
 
         public Point (int _x, int _y, char _sym)
@@ -33,48 +32,44 @@ namespace MySnake
 
         public void Move(int offset, Direction direction)
         {
-            if (direction == Direction.RIGHT)
+            if(direction == Direction.RIGHT)
             {
                 x = x + offset;
             }
-            else if (direction == Direction.LEFT)
+            else if(direction == Direction.LEFT)
             {
                 x = x - offset;
             }
-            else if (direction == Direction.UP)
+            else if(direction == Direction.UP)
             {
                 y = y - offset;
             }
-            else
+            else if(direction == Direction.DOWN)
             {
                 y = y + offset;
             }
         }
 
-        internal void Clear()
+        public bool IsHit(Point p)
         {
-            sym = ' ';
-            Draw();
+            return p.x == this.x && p.y == this.y;
         }
 
         public void Draw()
         {
-            //if (x >= 0 && x < 80 && y >= 0 && y < 25)
-            { 
-                Console.SetCursorPosition(x, y);
-                Console.Write(sym);
-            }
+            Console.SetCursorPosition( x, y );
+            Console.Write( sym );
         }
 
-        public bool IsHit (Point p)
+        public void Clear()
         {
-            return p.x == this.x && p.y == this.y;
+            sym = ' ';
+            Draw();
         }
 
         public override string ToString()
         {
             return x + ", " + y + ", " + sym;
         }
-
     }
 }
